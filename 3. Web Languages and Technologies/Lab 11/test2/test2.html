@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 2</title>
+
+<script>
+
+			var i = 0;
+			var j = 0;
+			var img = new Array;
+
+			function AddRow(){
+			
+				var table1 = document.getElementById('table1');
+
+                table1.innerHTML += "<tr><td><input id=\"text" + table1.rows.length + "\" type=\"text\"></td> <td><input id=\"" + table1.rows.length + "\" type=\"button\" value=\"Φόρτωση Εικόνας\" onclick=\"addImage(this)\"></td> <td><img id=\"img" + table1.rows.length + "\"></td></tr>";
+			
+			}
+			
+			function addImage(e)
+            {
+                var textbox = document.getElementById("text" + e.id);
+                var img1 = document.getElementById("img" + e.id);
+                img[i] = img1;
+                
+                img[i].src = textbox.value;
+                img[i].width = 200;
+                img[i].height = 200;
+                
+                i++;
+            }
+            
+            function SlidePhoto(){
+			
+				document.getElementById("button1").disabled = true;
+                document.getElementById("button2").disabled = false;
+
+				Time = setInterval(NextPhoto,1000);
+				
+			}
+			
+					
+			function NextPhoto(){	
+			
+				if (i == table1.rows.length) i = 0;	
+
+				table1[2] = img[i].src;
+				
+				i++;
+			
+			}
+			
+			function StopPhoto(){
+			
+				document.getElementById("button1").disabled = false;
+                document.getElementById("button2").disabled = true;
+			
+				clearInterval(Time);
+			
+			}
+
+
+</script>
+
+</head>
+
+<body>
+
+		<input type="button" value="Προσθήκη" id="add" onclick="AddRow()"/>
+		
+		<br>
+
+        <table id="table1"></table> <br>
+        
+        <input type="button" id="button1" value="Start" onclick="SlidePhoto()"/>
+		<input type="button" id="button2" value="Stop" onclick="StopPhoto()"/>
+
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 2</title>
+
+<script>
+            function ChangeText(event)
+            {
+                var target = event.target;
+
+                if(target.tagName == "LI")
+                {
+                    target.innerHTML = "Με Επέλεξες!!!";
+                    target.style.color = "red";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <ul id="list" onclick="ChangeText(event)">
+            <li>Στοιχείο 1</li>
+            <li>Στοιχείο 2</li>
+            <li>Στοιχείο 3</li>
+            <li>Στοιχείο 4</li>
+            <li>Στοιχείο 5</li>
+            <li>Στοιχείο 6</li>
+        </ul>
+    </body>
+</html>

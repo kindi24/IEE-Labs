@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+<script>
+
+		var i = 0;
+		
+		function AddOption(){
+			
+			var x = document.getElementById("form").value;
+			
+			if (x === "") alert("Το text-box είναι κενό");
+			
+			else{
+			
+				var y = document.getElementById("options");
+				var c = document.createElement("option");
+				c.text = x;
+				y.options.add(c, i);
+				
+				i++;
+			
+			}
+			
+		
+		}
+
+</script>
+
+</head>
+
+<body>
+		
+		<p>Δώσε ένα form element και θα προστεθεί στο παρακάτω list-box</p>
+		<input type="text" id="form"/> <br> <br>
+		
+		<select id="options" name="FormElements">
+			
+		
+		</select>
+		
+		<input type="button" value="Προσθήκη" onclick="AddOption()"/>
+		
+</body>
+
+</html>

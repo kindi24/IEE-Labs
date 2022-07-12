@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<title>Άσκηση 3</title>
+<script>
+            function Colorize()
+            {
+                for(var i = 0; i < document.links.length; i++)
+                {
+                    if(window.location.hostname == document.links[i].hostname)
+                    {
+                        document.links[i].style.backgroundColor = "green";
+                    }
+                    else
+                    {
+                        document.links[i].style.backgroundColor = "red";
+                    }
+                }
+            }
+</script>
+
+
+</head>
+
+<body>
+
+        <a href="http://www.ihu.gr">IHU</a> <br>
+        <a href="test1/test1.html">Άσκηση 1</a> <br>
+        <a href="https://www.iee.ihu.gr">IEE IHU</a> <br>
+        <a href="http://www.w3schools.com">W3SCHOOLS</a> <br>
+        <a href="test2/test2.html">Άσκηση 2</a> <br>
+
+        <br>
+        <input type="button" value="Χρωμάτισε" onclick="Colorize()">
+        
+</body>
+</html>

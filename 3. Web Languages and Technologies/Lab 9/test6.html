@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 6</title>
+
+<script>
+
+		function fillTable(){
+			var tbl1 = document.getElementById("table");
+			document.getElementById("button").onclick = false;
+			   
+			for (var i = 0; i < 5; i++){
+				var temprow = tbl1.insertRow(-1);
+					
+					for (var j = 0; j < 5; j++){
+						
+						var tempCell = temprow.insertCell(-1);
+						
+						tempCell.innerHTML = Math.ceil(Math.random() * 10);
+						
+						if (tempCell.innerHTML < 5) tempCell.style.backgroundColor = "red";
+						
+						else tempCell.style.backgroundColor = "green";
+					}
+			}
+		}
+		
+
+</script>
+
+</head>
+
+<body>
+		
+		<table border="1" id="table"></table>
+		
+		<br>
+		
+		<button id="button" onclick="fillTable()">Γέμισμα</button>
+
+		
+</body>
+
+</html>

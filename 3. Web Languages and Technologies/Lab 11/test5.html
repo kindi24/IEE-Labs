@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+<script>
+
+            var countDownTimer;
+
+            var count;
+
+            var sostesProspathies;
+            var lathosProspathies;
+
+
+            function startGame()
+            {
+                clearInterval(countDownTimer);
+                
+                document.getElementById("button1").disabled = true;
+
+                count = 10;
+
+                sostesProspathies = 0;
+                lathosProspathies = 0;
+
+
+                var table1 = document.getElementById('table1');
+                var div2 = document.getElementById('div2');
+
+                div2.innerHTML = "Time Left: " + count;
+
+                for(var i = 0; i < 4; i++)
+                {
+                    for(var j = 0; j < 4; j++)
+                    {
+                        var random = Math.floor(Math.random() * 10);
+
+                        table1.rows[i].cells[j].innerHTML = random;
+                        table1.rows[i].cells[j].bgColor = "white";
+                        table1.rows[i].cells[j].onclick = function()
+                        {
+                            check(this);
+                        };
+                    }
+                }
+
+                countDownTimer = setInterval("countDown()", 1000);
+            }
+
+            function countDown()
+            {
+                count--;
+
+                document.getElementById('div2').innerHTML = "Time Left: " + count;
+
+                if(count == 0)
+                {
+                    clearInterval(countDownTimer);
+                    document.getElementById("button1").disabled = false;
+					
+                    alert("Πράσινα (Σωστά): "+sostesProspathies+ "\nΚόκκινα (Λάθος): "+lathosProspathies);
+                }
+            }
+
+            function check(cell)
+            {
+                if(parseInt(cell.innerHTML) > 5)
+                {
+                    cell.bgColor = "green";
+
+                    sostesProspathies++;
+                }
+                else
+                {
+                    cell.bgColor = "red";
+
+                    lathosProspathies++;
+                }
+            }
+            
+</script>
+        
+</head>
+
+<body>
+        <input id="button1" type="button" value="Start" onclick="startGame()">
+
+        <br>
+
+        <div id="div1"></div>
+
+        <br>
+
+        <table id="table1" border="1" width="100" height="100">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <div id="div2"></div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<title>Άσκηση 4</title>
+
+<script>
+
+            function Photos()
+            {
+                var output = document.getElementById("output");
+                var button1 = document.getElementById("button1");
+
+                if(button1.value == "Εμφάνιση")
+                {
+                    for(var i = 0; i < document.images.length; i++)
+                    {
+                        output.innerHTML += document.images[i].src + "</br>";
+                    }
+                    button1.value = "Εξαφάνιση";
+                }
+                else
+                {
+                    output.innerHTML = " ";
+                    button1.value = "Εμφάνιση";
+                }
+            }
+            
+</script>
+</head>
+
+<body>
+        <input id="button1" type="button" value="Εμφάνιση" onclick="Photos()">
+
+        <div id="output"></div>
+
+        <img alt="Πάμε Στοίχημα" src="pame-stoixima.png" width="100px" height="100px">
+        <img alt="Bet365" src="bet365.png" width="100px" height="100px">
+        <img alt="Stoiximan" src="Stoiximan.png" width="100px" height="100px">
+        <img alt=" Bwin" src="bwin.png" width="100px" height="100px">
+        
+</body>
+</html>

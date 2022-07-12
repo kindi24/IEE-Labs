@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+    <script>
+    
+            function CreateNewElement()
+            {
+                var c1 = document.getElementById("type");
+                var c2 = document.getElementById("color");
+                var pnl = document.getElementById("pnlCreate");
+
+                pnl.innerHTML += "<" + c1.value + " style='color:" + c2.value + "'>Κείμενο με τύπο " + c1.value + 
+                " και χρώμα " + c2.value + "</" + c1.value + ">";
+                
+            }
+            
+	</script>
+	
+</head>
+
+<body>
+
+		<p>Διάλεξε τον τύπο του στοιχείου</p>
+		
+		<select id="type">
+				
+				<option value="H1">H1</option>
+				<option value="H2">H2</option>
+				<option value="H3">H3</option>
+				<option value="P">P</option>
+				<option value="SPAN">SPAN</option>
+		
+		</select>
+		
+		
+		<p>Διάλεξε το χρώμα των γραμμάτων</p>
+		
+		<select id="color">
+				
+				<option value="red">red</option>
+				<option value="blue">blue</option>
+				<option value="green">green</option>
+		
+		</select>
+		
+		<input type="button" value="Δημιουργία" onclick="CreateNewElement()"/>
+		
+		<div id="pnlCreate"></div>
+
+
+</body>
+
+</html>

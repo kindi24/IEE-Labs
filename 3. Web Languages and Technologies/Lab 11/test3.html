@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 3</title>
+
+<script>
+
+		 	var randomNumber;
+		 	var sum = 0;
+		 	var Pl = 0;
+
+            function Start()
+            {
+            
+				document.getElementById("start").disabled = true;
+
+                var table1 = document.getElementById('table1');
+                
+                for(var i = 0; i < 5; i++)
+                {
+                    for(var j = 0; j < 5; j++)
+                    {
+                        var random = Math.floor(Math.random() * 10);
+                        var color = Math.floor((Math.random() * 2) + 1);
+
+                        table1.rows[i].cells[j].innerHTML = random;
+                        
+                        if (color == 1)	table1.rows[i].cells[j].bgColor = "red";
+                        
+                        else table1.rows[i].cells[j].bgColor = "green";
+                        
+                        table1.rows[i].cells[j].onclick = function()
+                        {
+                            check(this);
+                        };
+                    }
+                }
+
+                
+            }
+            
+             function check(cell)
+            {
+            
+				sum += parseInt(cell.innerHTML); 
+               
+				if (cell.bgColor == "red"){
+				
+					cell.innerHTML--;
+					cell.bgColor = "green";
+					cell.onclick = false;
+				
+				}
+				
+				else{
+				
+					cell.innerHTML++;
+					cell.bgColor = "red";
+					cell.onclick = false;
+				
+				}
+				
+				Pl++;
+				
+				if (Pl == 10){
+					
+					document.getElementById("start").disabled = false;
+					var Total = Number(sum / 10);
+					alert(Total);
+				
+				}
+
+            }
+
+</script>
+
+</head>
+
+<body>
+
+		<table id="table1" style=" background-color:yellow" border="1" width="98" height="118">
+            <tr style="background-color:white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="background-color:white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="background-color:white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="background-color:white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="background-color:white">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> <br>
+        
+        <input id="start" type="button" value="Έναρξη" onclick="Start()"/>
+
+</body>
+
+</html>

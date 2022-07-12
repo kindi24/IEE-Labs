@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 4</title>
+
+<style>
+
+			.customcolors{
+			
+			color:red;
+			background-color:yellow;
+			
+			}
+
+</style>
+
+<script>
+
+			function ChangeBody(){
+				
+  				var links = document.getElementsByTagName("A");
+  				
+  				 for(i = 0; i < links.length; i++){
+  				 
+                    attr = document.createAttribute("class");
+                    attr.value = "customcolors";
+                    links[i].setAttributeNode(attr);
+                    
+                 }
+			}
+
+</script>
+
+</head>
+
+<body>
+			<a href="https://www.iee.ihu.gr/">Ιστοσελίδα της σχολής</a> <br>
+			<a href="https://sites.google.com/site/gtiteithe/">Ιστοσελίδα του μαθήματος</a> <br>
+			<a href="https://www.w3schools.com/js/default.asp">Javascript Tutorial</a> <br>
+			
+			<p>Πάτα το παρακάτω κουμπί για να δεις τις αλλαγές που θα γίνουν στο κέιμενο</p>
+			<input type="button" value="Click me" onclick="ChangeBody()"/>
+			
+</body>
+
+</html>

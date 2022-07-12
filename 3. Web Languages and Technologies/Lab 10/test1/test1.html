@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 1</title>
+
+
+<script>
+
+			var photos = new Array(5);
+			var i = 0;
+			var Time = 0;
+			
+			photos[0] = "pame-stoixima.png";
+			photos[1] = "bet365.png";
+			photos[2] = "Stoiximan.png";
+			photos[3] = "bwin.png";
+			photos[4] = "netbet.png";
+			
+			
+			function SlidePhoto(){
+			
+				document.getElementById("button1").disabled = true;
+                document.getElementById("button2").disabled = false;
+
+				Time = setInterval(NextPhoto,1000);
+				
+			}
+			
+					
+			function NextPhoto(){
+				
+				
+				i++;
+			
+				if (i == photos.length) i = 0;	
+
+				document.getElementById("photo").src = photos[i];
+			
+			}
+			
+			function StopPhoto(){
+			
+				document.getElementById("button1").disabled = false;
+                document.getElementById("button2").disabled = true;
+			
+				clearInterval(Time);
+			
+			}
+			
+
+</script>
+
+
+</head>
+
+<body>
+
+		<img id="photo" alt="Sites for betting" src="pame-stoixima.png" width="200px" height="200px"/> <br>
+		
+		<input type="button" id="button1" value="Start" onclick="SlidePhoto()"/>
+		<input type="button" id="button2" value="Stop" onclick="StopPhoto()"/>
+
+</body>
+
+</html>

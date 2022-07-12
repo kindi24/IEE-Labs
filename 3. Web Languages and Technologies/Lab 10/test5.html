@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+<script>
+
+			function TableCreation(){
+			
+				var textBox1 = document.getElementById("rows");
+                var textBox2 = document.getElementById("cells");
+                var table = document.getElementById("table");
+
+                for(var i = 0; i < textBox1.value; i++)
+                {
+                    var newRow = table.insertRow(-1);
+
+                    for(var j = 0; j < textBox2.value; j++){
+                    
+                        var newCell = newRow.insertCell(-1);
+
+                        newCell.innerHTML = i + " " + j;
+                        
+                    }
+                }			
+			}
+
+</script>
+
+</head>
+
+<body>
+
+		<p>Δώσε τις σειρές του πίνακα:</p>
+		
+		<input type="text" id="rows"> <br>
+
+		<p>Δώσε τις στήλες του πίνακα:</p>
+		
+		<input type="text" id="cells"> 
+		
+		<input type="button" value="Δημιούργησε πίνακα" onclick="TableCreation()"> <br>
+		
+		
+		<table id="table" border="1">
+		
+		
+		</table>
+
+		
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 1</title>
+
+<script>
+
+			function CheckElement(event){
+				
+				document.getElementById("text").value = event.target.tagName;
+				document.getElementById("textarea").innerHTML = event.target.innerHTML;
+  							
+			}
+
+</script>
+
+
+</head>
+
+<body onmouseover="CheckElement(event)">
+
+		<input id="text" value="" name="Text1" type="text" /> 
+		
+		<br> <br>
+		
+		<textarea id="textarea" name="TextArea1" cols="25" rows="4"></textarea>
+		
+		<h1>Επικεφαλίδα 1</h1> 
+		
+		<h4>Επικεφαλίδα 4</h4> 
+		
+		<div>Κείμενο μέσα σε div</div>
+		
+		<p> <strong>Σημείωση:</strong>Εδώ πέρα έχουμε μια παράγραφο</p>
+		
+		<a href="https://www.iee.ihu.gr/" onclick="return false" >Η σελίδα της σχολής</a>
+		
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+<script>
+			
+			function CreateNewElement(){
+			
+					var type = document.getElementById("type").value;
+					var node = document.createElement(type);
+					
+					node.style.color = document.getElementById("color").value;
+					
+					node.innerHTML = "Κείμενο τύπου " + type + " και χρώμα " + node.style.color + "";					
+					document.getElementById("pnlCreate").appendChild(node);
+					
+			}			
+
+</script>
+
+
+</head>
+
+<body>
+
+		<p>Διάλεξε τον τύπο του στοιχείου</p>
+		
+		<select id="type">
+				
+				<option value="H1">H1</option>
+				<option value="H2">H2</option>
+				<option value="H3">H3</option>
+				<option value="P">P</option>
+				<option value="SPAN">SPAN</option>
+		
+		</select>
+		
+		
+		<p>Διάλεξε το χρώμα των γραμμάτων</p>
+		
+		<select id="color">
+				
+				<option value="red">red</option>
+				<option value="blue">blue</option>
+				<option value="green">green</option>
+		
+		</select>
+		
+		<input type="button" value="Δημιουργία" onclick="CreateNewElement()"/>
+		
+		<div id="pnlCreate"></div>
+			
+
+</body>
+
+</html>

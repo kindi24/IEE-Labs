@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 7</title>
+
+<script>
+			
+			function Colorize(){
+				
+			var select = document.getElementById("selection").selectedIndex;
+                var button = document.getElementById("choice");
+
+                if(button.value == "Χρωματισμός")
+                {
+                    button.value = "Αποχρωματισμός";
+
+                    if(select == "0")
+                    {
+                        var j = document.getElementsByTagName("h1");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "yellow";
+                        }
+                    }
+                    else
+                    {
+                        var j = document.getElementsByTagName("h2");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "yellow";
+                        }
+                    }
+                }
+                else
+                {
+                    button.value = "Χρωματισμός";
+
+                    if(select == "0")
+                    {
+                        var j = document.getElementsByTagName("h1");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "white";
+                        }
+
+                    }
+
+                    else
+                    {
+                        var j = document.getElementsByTagName("h2");
+
+                        for(var i = 0; i < j.length; i++)
+                        {
+                            j[i].style.backgroundColor = "white";
+                        }
+                    }
+                }			
+			}
+
+</script>
+
+</head>
+
+<body>
+		<p>Επέλεξε ποιο επίπεδο (Η1 ή Η2) θες να χρωματίσεις</p>
+		<select id="selection">
+		
+			<option value="1ο επίπεδο">1ο επίπεδο</option>
+			<option value="2ο επίπεδο">2ο επίπεδο</option>
+		
+		</select>
+		
+		<input type="button" id="choice" value="Χρωματισμός" onclick="Colorize()"/>
+		
+		<div id="texts">
+		
+				<h1>Κείμενο 1</h1>
+				<h2>Κείμενο 2</h2>
+				<h2>Κείμενο 3</h2>
+				<h1>Κείμενο 4</h1>
+				<h2>Κείμενο 5</h2>
+				<h1>Κείμενο 6</h1>
+				<h2>Κείμενο 7</h2>
+		
+		</div>
+		
+</body>
+
+</html>

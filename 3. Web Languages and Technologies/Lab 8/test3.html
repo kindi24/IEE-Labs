@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 3</title>
+
+<script>
+
+			var count = 0;
+			
+			function Choice(event){
+
+ 				var target = event.target;
+
+                if(target.tagName == "LI")
+                {
+                    target.innerHTML = "Με επέλεξες!!!";
+                    target.style.color = "red";
+
+                    count++;
+
+                    if(count == 3)
+                    {
+                        alert("Έκανες τρεις επιλογές")
+                        document.getElementById("list").onclick = false;
+                    }
+                }			
+            }
+
+</script>
+
+</head>
+
+<body>
+		
+		<ul id="list" onclick="Choice(event)">
+				<li>Στοιχείο 1</li>
+				<li>Στοιχείο 2</li>
+				<li>Στοιχείο 3</li>
+				<li>Στοιχείο 4</li>
+				<li>Στοιχείο 5</li>
+				<li>Στοιχείο 6</li>
+		</ul>
+
+</body>
+
+</html>
