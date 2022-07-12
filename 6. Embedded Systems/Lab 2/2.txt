@@ -1,0 +1,28 @@
+#include<main.h>  
+#byte PORTA=0xF80 
+#byte PORTD=0xF83  
+//Θέσεις μνήμης SFR                                     
+//SFR = Special Function Register 
+
+// ********* main program *********************
+
+void main()
+{                   
+   set_tris_a(0xff); //PORTA είσοδος  
+   set_tris_d(0x00); //PORTD έξοδος  
+
+
+   int1 a;   //μεταβλητή 1 bit          
+   int1 b;   //μεταβλητή 1 bit           
+
+   while(TRUE) {      //για πάντα
+      a=input(PIN_A0); //διάβασμα μεμονωμένου pin
+      b=input(PIN_A1); //διάβασμα μεμονωμένου pin
+      if(a == b == 1){              //έλεγχος αν a=b=”1”
+      	PORTD = 0xFF; //αν ΝΑΙ, τότε LED αναμμένο
+      }
+      else{             
+             PORTD = 0x00;        //αν ΟΧΙ, τότε LED σβηστό
+      }
+   }
+}

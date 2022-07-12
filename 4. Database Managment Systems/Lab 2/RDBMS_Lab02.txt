@@ -1,0 +1,45 @@
+4. Ναι, θα μπορούσαμε να έχουμε το σύνολο της πληροφορίας σε περισσότερους από δύο πίνακες, επειδή συνδυάζοντας τόσους πίνακες, με ένα κοινό τους σημείο (π.χ. ο τίτλος ταινίας), μπορούμε να πάρουμε περισσότερες πληροφορίες για κάτι συγκεκριμένο που ψάχνουμε.
+
+8. SELECT DISTINCT titlos
+FROM tainia
+WHERE paragogi = 'Σινεμάτικ' and apoth_video > 10
+
+
+11. SELECT DISTINCT aithousa
+FROM kinimatografos
+WHERE titlos_tainias = 'Pretty woman'
+
+
+14. SELECT DISTINCT titlos_tainias
+FROM kinimatografos
+WHERE aithousa = 'TITANIA' OR aithousa = 'VILLAGE'
+
+
+15. SELECT titlos_tainias FROM kinimatografos
+WHERE aithousa = 'TITANIA' AND evdomades > 8
+
+
+16. SELECT DISTINCT titlos_tainias
+FROM kinimatografos
+WHERE aithousa = 'TITANIA' OR evdomades > 30
+
+
+17. SELECT DISTINCT k.titlos_tainias
+FROM symmetoxi s NATURAL JOIN kinimatografos k
+WHERE k.evdomades > 10 AND (s.eponimo_ithopoiou = 'Redford' AND s.onoma_ithopoiou = 'Robert')
+
+
+19. SELECT DISTINCT k.titlos_tainias, t.paragogi
+FROM tainia t INNER JOIN kinimatografos k ON t.titlos = k.titlos_tainias
+WHERE k.aithousa = 'STER CENTURY'
+
+
+21. SELECT DISTINCT s.eponimo_ithopoiou, s.onoma_ithopoiou
+FROM tainia t INNER JOIN kinimatografos k ON t.titlos = k.titlos_tainias
+			  INNER JOIN symmetoxi s ON t.titlos = s.titlos_tainias
+WHERE t.paragogi = 'Σινεμάτικ' AND k.evdomades > 10
+
+
+23. SELECT DISTINCT k.aithousa
+FROM symmetoxi s INNER JOIN kinimatografos k ON s.titlos_tainias = k.titlos_tainias
+WHERE (s.eponimo_ithopoiou = 'Gere' AND s.onoma_ithopoiou = 'Richard')

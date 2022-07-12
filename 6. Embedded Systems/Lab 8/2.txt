@@ -1,0 +1,65 @@
+#include <main.h>
+#include <flex_lcd.h> 
+
+#byte PORTB=0xf81 
+
+// Δήλωση μεταβλητών------------------
+//Μετρητής διακοπών (μετά από 4 διακοπές ανά 50 ms θα έχουν περάσει 4Χ50=200 ms.
+int counter=4; 
+// Μεταβλητή που δηλώνει το τι εμφανίζεται στην οθόνη.
+// state=0  εμφανίζονται οι αστερίσκοι
+// state=1  δεν εμφανίζονται οι αστερίσκοι
+int8 state; 
+
+// Δήλωση συναρτήσεων
+void timer0_int(void); 
+void init (void);
+
+void main() {
+   //κλήση της ρουτίνας αρχικοποίησης
+   init();           
+   // αρχικοποίηση της οθόνης
+   lcd_init();       
+   // καθαρισμός της οθόνης
+   lcd_putc("\f");       
+   // η οθόνη θα εμφανίσει στην 4η θέση της 1ης γραμμής
+   lcd_gotoxy(4,1);    
+   lcd_putc(" MICRO LAB"); // εμφανίζεται το μήνυμα
+   while(TRUE) {;}
+}
+
+// Ρουτίνα διακοπής από τον timer0. 
+#INT_TIMER0 
+void timer0_int(void){
+   // αρχική τιμή του μετρητή για να συμβεί η επόμενη διακοπή σε 50ms
+   set_timer0(56161);  
+   counter--; // ελαττώνεται ο μετρητής διακοπών
+   if (counter==0 && state==0 ) {//τύπωσε αστερίσκους
+      counter=4;
+      state=1; 
+      lcd_gotoxy(5,2);
+      lcd_putc("*****");
+   }
+   if (counter==0 && state==1) {//σβήσε αστερίσκους
+      counter=4;
+      state=0; 
+      lcd_gotoxy(5,2);
+      lcd_putc("");
+   }
+}
+
+// Ρουτίνα αρχικοποίησης
+void init (void){
+   set_tris_b(0x00);             
+   PORTB = 0;
+   state=0;
+   counter=4;    // Αρχική τιμή του counter
+   
+   //Prescaler=64
+   SETUP_TIMER_0(T0_INTERNAL | T0_DIV_64 );
+   //  Αρχική τιμή του  μετρητή timer0 για διακοπές κάθε 50 ms
+   set_timer0(56161);  
+   enable_interrupts(INT_TIMER0); 
+   enable_interrupts(GLOBAL);     
+}
+

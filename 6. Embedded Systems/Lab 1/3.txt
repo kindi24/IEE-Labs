@@ -1,0 +1,16 @@
+#include <main.h> 
+#byte PORTB =0xF81 //θέση μνήμης της PORTB
+
+int8 i;  //μεταβλητή δεδομένων 
+void main(void){
+   set_tris_b(0x00);   //PORTB ως έξοδος
+   PORTB =0b10000000;  //Αρχική τιμή στην PORTB
+   while(TRUE) {   //για πάντα
+      for(i=1;i<=7;i++){
+         PORTB = PORTB/2;
+      }  
+      for(i=7;i>=1;i--){
+          PORTB = PORTB*2;
+      }  
+   }                 
+}     

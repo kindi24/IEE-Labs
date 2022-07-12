@@ -1,0 +1,32 @@
+#include <main.h> 
+#byte PORTD =0xF83 
+
+
+//δήλωση συναρτήσεων
+void init(void);
+void ext_int(void); 
+
+//η μεταβλητή i θα χρησιμοποιηθεί ως μετρητής
+int i=0;
+
+
+void main(){
+   init();  //καλώ την συνάρτηση που κάνει αρχικοποιήσεις      
+   while(TRUE){;}  //για πάντα
+}
+
+void init(){
+   set_tris_d(0x00);       //η PORTD γίνεται έξοδος                                       
+   PORTD = 0b00000000;     //αρχικοποίηση πόρτας 
+   
+   ext_int_edge(0, H_TO_L);   //ορισμός interrupt από το RB0
+                           //και σε μετάβαση από "1" σε "0"
+   enable_interrupts(GLOBAL); //ενεργοποίηση "γενικού διακόπτη"  
+   enable_interrupts(INT_EXT); //ενεργοποίηση διακοπής από το RB0
+}
+
+#INT_EXT HIGH    //Ρουτίνα εξυπηρέτησης διακοπής από το RB0
+void ext_int(){
+   i = i + 1;    //αυξάνεται ο μετρητής κατά 1
+   PORTD = i;      //εμφανίζεται στην PORTD το περιεχόμενο του μετρητή
+}                      

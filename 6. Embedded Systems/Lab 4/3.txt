@@ -1,0 +1,43 @@
+#include <main.h> 
+#byte PORTD =0xF83 
+
+//δήλωση συναρτήσεων
+void init(void);
+void ext_int2(void); 
+
+void main(){
+   init(); //καλώ την συνάρτηση που κάνει αρχικοποιήσεις   
+   while(TRUE){   //flash 8 LEDs
+      PORTD=0b11111111;    
+      delay_ms(300);                                                     
+      PORTD=0b00000000;
+      delay_ms(300);
+   }                                                                  
+}                                                     
+
+//ρουτίνα αρχικοποιήσεων
+void init(){      
+   set_tris_d(0x00);       //η PORTD γίνεται έξοδος                                       
+   PORTD = 0b00000000;     //αρχικοποίηση πόρτας 
+   ext_int_edge(2, H_TO_L);  
+   //ορισμός διακοπής από το RB2
+   //και σε μετάβαση από λογικό 1 σε λογικό 0
+   enable_interrupts(GLOBAL);
+   //ενεργοποίηση "γενικού διακόπτη"
+   enable_interrupts(INT_EXT2);
+   //ενεργοποίηση διακοπής από το RB2
+}                                                 
+
+//Ρουτίνα εξυπηρέτησης διακοπής από το RB2
+#INT_EXT2                                                                      
+void ext_int2() {   
+//δημιουργία κινούμενης τελείας  
+      for(i=1;i<=7;i++){
+         PORTD = PORTD/2;
+      }  
+      for(i=7;i>=1;i--){
+          PORTD = PORTD*2;
+      } 
+
+
+} 

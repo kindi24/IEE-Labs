@@ -1,0 +1,31 @@
+#include <main.h> 
+#byte PORTD =0xF83 
+
+//δήλωση συναρτήσεων
+void init(void);
+void ext_int1(void); 
+
+void main(){
+   init(); //καλώ την συνάρτηση που κάνει αρχικοποιήσεις   
+   while(TRUE){;}  //για πάντα
+}
+
+void init(){
+   set_tris_d(0x00);       //η PORTD γίνεται έξοδος                                       
+   PORTD = 0b00000000;     //αρχικοποίηση πόρτας 
+   ext_int_edge(1, L_TO_H); //ορισμός interrupt από το RB1
+                     //και σε μετάβαση από "0" σε "1"
+   enable_interrupts(GLOBAL);//ενεργοποίηση "γενικού διακόπτη"  
+   enable_interrupts(INT_EXT1); //ενεργοποίηση διακοπής από το RB0
+}
+
+#INT_EXT1 HIGH    //Ρουτίνα εξυπηρέτησης διακοπής από το RB1
+void ext_int1(){
+   int i;
+   for(i=1;i<3; i++){      //εκτελείται 2 φορές
+      output_high(PIN_D7); //LED ανάβει
+      delay(500);      //αναμονή για 0.5s
+      output_low(PIN_D7);      //LED σβήνει
+      delay(500);       //αναμονή για 0.5s
+   }                      
+}

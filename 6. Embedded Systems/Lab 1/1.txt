@@ -1,0 +1,8 @@
+#include <main.h> 
+#byte PORTB =0xF81 //θέση μνήμης της PORTB
+
+void main(void){
+   set_tris_b(0x00); //ορισμός PORTB ως έξοδος 
+   PORTB =0b11110000;  //ορισμός τιμής στην PORTB
+   while(TRUE) {  }   //για πάντα
+}               

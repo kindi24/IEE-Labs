@@ -1,0 +1,42 @@
+1. SELECT k.id, k.name, k.address FROM keeper k INNER JOIN vehicle v ON (k.id = v.keeper)
+WHERE v.id = 'SO 02 PSP'
+
+2. SELECT COUNT(perim) FROM camera
+WHERE perim = 'IN'
+
+3. SELECT whn, reg FROM image 
+WHERE camera = 10 AND whn < '2007-02-28'
+
+4. SELECT DISTINCT v.id FROM vehicle v, image i, image i2
+WHERE v.id = i.reg AND v.id = i2.reg AND NOT(i.whn = i2.whn) AND i.whn > i2.whn AND i.whn-i2.whn <= '00:01:00'
+
+10. WITH 
+Photographed_by5 AS
+(SELECT k.id
+FROM keeper k, vehicle v, image i
+WHERE i.reg=v.id AND v.keeper=k.id
+AND i.camera=5)
+SELECT DISTINCT k.id, k.name, k.address
+FROM keeper k, vehicle v, image I
+WHERE (k.id = v.keeper AND v.id = I.reg) AND i.camera = 2 AND EXISTS (SELECT id FROM Photographed_by5)
+
+14. WITH MIN_Intervals AS 
+(SELECT I.reg, MIN(whn-sdate) AS MIN_I
+FROM permit P JOIN image I ON (P.reg = I.reg)
+WHERE whn > sdate
+GROUP BY I.reg)
+ 
+SELECT K.id, K.name, MI.reg, MI.MIN_I
+FROM MIN_Intervals MI JOIN vehicle V ON (V.id = MI.reg) 
+JOIN keeper K ON (K.id = V.keeper)
+
+15. WITH MIN_Intervals AS 
+(SELECT I.reg, MIN(whn-sdate) AS MIN_I
+FROM permit P JOIN image I ON (P.reg = I.reg)
+WHERE whn > sdate
+GROUP BY I.reg)
+ 
+SELECT K.id, K.name, MI.reg, MI.MIN_I, EXTRACT(day FROM MI.MIN_I) AS Days,
+EXTRACT(hour FROM MI.MIN_I) AS Hours, EXTRACT(minute FROM MI.MIN_I) AS Minutes
+FROM MIN_Intervals MI JOIN vehicle V ON (V.id = MI.reg) 
+JOIN keeper K ON (K.id = V.keeper)

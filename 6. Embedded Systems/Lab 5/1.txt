@@ -1,0 +1,29 @@
+#include <main.h>
+#byte PORTD=0xF83  
+#byte PORTB=0xF81     
+
+//δήλωση συναρτήσεων
+void rb(void);                                                                               
+void init (void);                                                              
+
+void main(){
+  init(); //καλώ την συνάρτηση που κάνει αρχικοποιήσεις      
+   while(TRUE){;}  //για πάντα                                                             
+   }
+           
+//Ρουτίνα εξυπηρέτησης διακοπής από τα RB4~RB7
+void init (){
+   set_tris_b(0xFF) //ορισμός PORTB ως είσοδος
+   set_tris_d(0x00); //ορισμός PORTD ως έξοδος                                                  
+   enable_interrupts(INT_RB);    
+  enable_interrupts(GLOBAL); //ενεργοποίηση "γενικού διακόπτη" interrupt                                                                                                                    
+   PORTD=0xFF;       //αρχική κατάσταση στην PORTD                                                 
+}
+            
+            
+#INT_RB                                                                                                                                             
+void rb(){  //ρουτίνα εξυπηρέτησης διακοπής
+   int8 a; 
+   PORTD=PORTD^0xFF;
+   a=PORTB; 
+}

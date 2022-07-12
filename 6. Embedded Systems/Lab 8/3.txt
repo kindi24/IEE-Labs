@@ -1,0 +1,55 @@
+#include <main.h>
+#include <flex_lcd.h>       
+
+#byte PORTB=0xf81      
+
+//Δήλωση μεταβλητών
+//Μετρητής διακοπών (μετά από 20 διακοπές ανά 50 ms => 20Χ50=1000 ms=1 second.
+int counter=20;      
+// μεταβλητή της οποίας η τιμή θα εμφανίζεται στην οθόνη
+int seconds=0;      
+
+// Δήλωση συναρτήσεων
+void timer0_int(void);    
+void init (void);
+
+void main() {
+   init();         //κλήση της ρουτίνας αρχικοποίησης
+   lcd_init();     //αρχικοποίηση της οθόνης
+   lcd_putc("\f"); //καθαρισμός της οθόνης
+   while(TRUE){;}
+}
+
+// Ρουτίνα διακοπής από τον timer0. 
+#INT_TIMER0 
+void timer0_int(void){
+   // αρχική τιμή του μετρητή για να συμβεί η επόμενη διακοπή σε 50ms
+   set_timer0(56161);
+   // ελαττώνεται ο μετρητής διακοπών
+   counter--;                 
+   if (counter==0) { //όταν περάσει 1 δευτερόλεπτο
+      counter=20;                  
+      seconds++;
+      lcd_gotoxy(5,1);
+      printf(lcd_putc,"SECONDS=%d",seconds); 
+   }
+}
+
+// Ρουτίνα αρχικοποίησης
+void init (void){
+   set_tris_b(0x00);     
+   set_tris_d(0x00);
+   // Αρχική τιμή του μετρητή δευτερολέπτων ίση με μηδέν
+   seconds=0;
+   // Αρχική τιμή του counter=20. Μετά από 20 διακοπές ο counter θα γίνει 0
+   counter=20;
+   //Prescaler=1/64
+   SETUP_TIMER_0(T0_INTERNAL | T0_DIV_64 );   
+   //  Αρχική τιμή του  μετρητή timer0 για διακοπές κάθε 50 ms 
+   set_timer0(56161);              
+   // Ενεργοποίηση της διακοπής του timer0
+   enable_interrupts(INT_TIMER0);
+   // Ενεργοποίηση του γενικού διακόπτη των διακοπών
+   enable_interrupts(GLOBAL);       
+}
+

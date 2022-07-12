@@ -1,0 +1,12 @@
+#include <main.h> 
+#byte PORTB =0xF81 //θέση μνήμης της PORTB
+void main(void){
+   set_tris_b(0x00); //ορισμός PORTB ως έξοδος 
+   PORTB =0b11111111;  //ορισμός τιμής στην PORTB
+   while(TRUE) {     //για πάντα                          
+      delay_ms(250);    //αναμονή 250ms
+       PORTB=0b00000000;  //LED σβηστά
+       delay_ms(250);     //αναμονή 250ms
+       PORTB =0b11111111;  //LED αναμμένα     
+    }
+ }

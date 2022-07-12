@@ -1,0 +1,21 @@
+#include<main.h>                
+#byte PORTB=0xF81         
+#byte PORTD=0xF83         
+//Θέσεις μνήμης SFR                                     
+//SFR = Special Function Register
+                   
+                   
+//*********Main program***********
+
+void main()
+{                                 
+   set_tris_b(0x00);       
+   set_tris_d(0xff);        
+
+   int8 a;  //ορισμός μεταβλητής 8 bit                    
+                    
+   while(TRUE) {   //για πάντα          
+   a=PORTD;                   
+   PORTB=a/2;  
+   }
+}
