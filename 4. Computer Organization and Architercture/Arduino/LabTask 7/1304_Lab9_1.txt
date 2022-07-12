@@ -1,0 +1,38 @@
+String color;
+
+void setup()
+{
+  Serial.begin(9600);
+
+  pinMode(5, OUTPUT); // Green
+  pinMode(6, OUTPUT); // Blue
+  pinMode(9, OUTPUT); // Red
+  Serial.println("Enter Yellow or Purple: ");
+}
+
+void loop()
+{
+   do{
+      while(Serial.available() > 0){
+          color = Serial.readString();
+        if(color != "Yellow" && color != "Purple"){
+          Serial.println("Wrong Input");
+        }
+      }
+  }
+  while(color != "Yellow" && color!="Purple");
+  
+  if (color == "Yellow"){
+  	analogWrite(5, 255);
+  	analogWrite(6, 0);
+    analogWrite(9, 255);
+  }  
+  else{
+  	analogWrite(5, 0);
+  	analogWrite(6, 255);
+    analogWrite(9, 168);
+  }
+  
+}
+
+  

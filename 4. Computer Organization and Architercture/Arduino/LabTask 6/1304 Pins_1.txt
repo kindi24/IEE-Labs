@@ -1,0 +1,13 @@
+void setup()
+{
+  pinMode(4, OUTPUT);
+  pinMode(3, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(4, HIGH);
+  digitalWrite(3, HIGH);
+  analogWrite(3, 40);
+  delay(10); // Delay a little bit to improve simulation performance
+}

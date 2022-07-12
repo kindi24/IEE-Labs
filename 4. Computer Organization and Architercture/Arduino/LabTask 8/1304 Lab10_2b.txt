@@ -1,0 +1,58 @@
+int PIN=2;
+int red = 9;
+int green = 5;
+int blue = 6;
+volatile int value;
+volatile int pinG = 255;
+volatile int pinB = 255;
+volatile int pinR = 255;
+volatile int num = 0.0; 
+volatile float voltage = 0.0;
+volatile float temp = 0.0;
+
+
+void setup()
+{
+  // Initialise Serial Interface
+  Serial.begin(9600);
+  
+  pinMode(green, OUTPUT); // Green
+  pinMode(blue, OUTPUT); // Blue
+  pinMode(red, OUTPUT); // Red
+  
+  // Initialise the PIN for button
+  pinMode(PIN, INPUT);
+  
+  // Initiasle the Interrupt Routine
+  attachInterrupt(digitalPinToInterrupt(PIN),color,RISING);
+}
+
+void loop()
+{
+	analogWrite(green, pinG);
+  	analogWrite(red, pinR);
+    analogWrite(blue, pinB);
+}
+
+void color()
+{
+  Serial.println("Dwse tin timh ths thermokrasias");
+  temp = Serial.parseFloat();
+  
+  // Change color
+   if (temp > 25){
+	pinG = 0;
+  	pinR = 255;
+  	pinB = 0;
+  }
+  else if (temp < 5){
+	pinG = 0;
+  	pinR = 0;
+  	pinB = 255;
+  }
+  else{
+    pinG = 255;
+  	pinR = 255;
+  	pinB = 0;
+  }
+} 

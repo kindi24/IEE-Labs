@@ -1,0 +1,27 @@
+int lastMillis = 0; 
+int currentMillis = 0;
+int lastMillis1 = 0; 
+int currentMillis1 = 0;
+
+void setup()
+{
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+}
+
+void loop()
+{
+  currentMillis = millis();
+  currentMillis1 = millis();
+  if(currentMillis - lastMillis >= 1000){
+    lastMillis = currentMillis;
+  	digitalWrite(7, HIGH);
+  	digitalWrite(7, LOW);
+  }
+  
+  if(currentMillis1 - lastMillis1 >= 300){
+    lastMillis1 = currentMillis1;
+    digitalWrite(8, HIGH);
+  	digitalWrite(8, LOW);
+  }
+}

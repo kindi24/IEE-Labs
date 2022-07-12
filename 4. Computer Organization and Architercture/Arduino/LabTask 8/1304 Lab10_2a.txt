@@ -1,0 +1,66 @@
+int current = 0;
+int ms = 0;
+int red = 9;
+int green = 5;
+int blue = 6;
+volatile int pinG = 0;
+volatile int pinB = 0;
+volatile int pinR = 0;
+volatile int num = 0; 
+volatile float voltage = 0.0;
+volatile float temp = 0.0;
+
+void setup()
+{
+  // Initialise Serial Interface
+  Serial.begin(9600);
+  
+  pinMode(green, OUTPUT); // Green
+  pinMode(blue, OUTPUT); // Blue
+  pinMode(red, OUTPUT); // Red
+  
+  // Initiasle the Interrupt Routine
+  attachInterrupt(digitalPinToInterrupt(green),color,RISING);
+}
+
+void loop()
+{
+  ms = millis();
+  if (ms - current > 2500){
+  	current = ms;
+  }
+  else if (ms - current == 2500){
+    color();
+  	analogWrite(green, pinG);
+  	analogWrite(red, pinR);
+  	analogWrite(blue, pinB);
+  }
+}
+
+void color()
+{
+  num = analogRead(A3);
+  voltage = (num * 5.0) / 1024;
+  temp = (voltage - 0.5) * 100;
+  
+  Serial.print("Temperature:");
+  Serial.println(temp);
+  
+  // Change color
+  if (temp > 25){
+	pinG = 0;
+  	pinR = 255;
+  	pinB = 0;
+  }
+  else if (temp < 5){
+	pinG = 0;
+  	pinR = 0;
+  	pinB = 255;
+  }
+  else{
+    pinG = 255;
+  	pinR = 255;
+  	pinB = 0;
+  }
+}
+  

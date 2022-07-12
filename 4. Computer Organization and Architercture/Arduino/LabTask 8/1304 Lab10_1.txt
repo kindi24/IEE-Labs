@@ -1,0 +1,45 @@
+int PIN=2;
+int red = 9;
+int green = 5;
+int blue = 6;
+volatile int pinG = 255;
+volatile int pinB = 255;
+volatile int pinR = 255;
+
+void setup()
+{
+  // Initialise Serial Interface
+  Serial.begin(9600);
+  
+  pinMode(green, OUTPUT); // Green
+  pinMode(blue, OUTPUT); // Blue
+  pinMode(red, OUTPUT); // Red
+  
+  // Initialise the PIN for button
+  pinMode(PIN, INPUT);
+  
+  // Initiasle the Interrupt Routine
+  attachInterrupt(digitalPinToInterrupt(PIN),color,RISING);
+}
+
+void loop()
+{
+    analogWrite(green, pinG);
+    analogWrite(red, pinR);
+    analogWrite(blue, pinB);
+}
+
+void color()
+{
+  // Change color
+  if (pinG == 0){
+	pinG = 255;
+  	pinR = 0;
+  	pinB = 255;
+  }
+  else{
+    	pinG = 0;
+  	pinR = 255;
+  	pinB = 168;
+  }
+} 
