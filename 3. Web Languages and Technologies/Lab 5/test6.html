@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 6</title>
+
+	<script>
+	
+			function Choice(){
+				var x = document.getElementById("option").value;
+				
+				if (x == "Domain") document.getElementById("output").innerHTML = "Domain: " + location.hostname + "";
+				else if (x == "Path") document.getElementById("output").innerHTML = "Path: " + location.pathname + "";
+				else document.getElementById("output").innerHTML = " ";
+
+			}
+	
+	</script>
+
+</head>
+
+<body>
+		<p>Διάλεξε το μέρος του url όπου θες να εμφανιστεί</p>
+		
+		<select id="option" onclick="Choice()">
+		<option value="---" /> ---
+		<option value="Domain" /> Domain
+		<option value="Path" /> Path
+		</select>
+		
+		<p id="output"></p>
+		
+</body>
+
+</html>

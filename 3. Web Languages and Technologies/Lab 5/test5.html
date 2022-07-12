@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 5</title>
+
+
+<script>
+
+		function CheckBrowser() {
+		
+  			var x = "Ο τύπος του browser είναι " + navigator.appCodeName;
+  			
+  			document.getElementById("browser").innerHTML = x;
+  			
+		}
+
+		function CheckLanguage() {
+		
+  			var x = "Η γλώσσα του browser είναι " + navigator.language;
+  			
+  			document.getElementById("language").innerHTML = x;
+  			
+		}
+		
+</script>
+
+</head>
+
+<body>
+		<p>Πάτα το κουμπί για να ελέγξεις τον τύπο του browser</p>
+
+		<button onclick="CheckBrowser()">Check it</button>
+
+		<p id="browser"></p>
+		
+		
+		<hr>
+		
+
+		<p>Πάτα το κουμπί για να ελέγξεις την γλώσσα του browser</p>
+
+		<button onclick="CheckLanguage()">Check it</button>
+
+		<p id="language"></p>
+
+
+</body>
+</html>

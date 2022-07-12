@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<HTML>
+<HEAD>
+<TITLE> Διαχείριση λαθών</TITLE>
+
+<script>
+
+			function ChangePhoto(obj){
+				
+				image=obj;
+				image.src="Sunset.jpg";
+			
+			}
+
+</script>
+
+</HEAD>
+
+<BODY>
+
+	<H1>Διαχείριση λαθών</H1>
+	
+	<P>Image χωρίς διαχείριση λαθών.
+	<IMG SRC="1.gif" NAME="Img1">
+	
+	<P>Image με διαχείριση λαθών. <br>
+	<IMG SRC="1.gif" onerror="ChangePhoto(this)" name="Img2">
+	
+	
+
+</BODY>
+</HTML>

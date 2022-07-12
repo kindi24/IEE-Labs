@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 3</title>
+
+<script>
+		var w;
+		
+		function SearchURL(){
+			var URL = document.getElementById("url").value;
+			w = window.open("URL", "URL", "width=200,height=200");
+		}
+		
+		function resize()
+            {
+                textBox1 = document.getElementById('text1');
+                textBox2 = document.getElementById('text2');
+
+                newWindow = window.open('', '', 'width=200, height=200, menubar=no, location=no');
+                newWindow.resizeTo(textBox1.value, textBox2.value);
+                newWindow.focus();
+            }		
+		
+</script>
+
+
+</head>
+
+<body>
+		<p>Δώσε το URL όπου θες να συνδεθείς:</p>
+		
+		<input id="url" name="Text1" type="text" onsubmit="Submit" />
+		
+		<input name="Submit" type="submit" value="Submit" onclick="SearchURL()" />
+
+		
+		<hr />
+		
+		<form>
+            Enter Width:
+            <input type="text" id="text1">
+            </br>
+            Enter Height:
+            <input type="text" id="text2">
+            </br>
+            <input type="button" value="Create" onclick="resize()">
+        </form>		
+		
+		
+		
+</body>
+
+</html>

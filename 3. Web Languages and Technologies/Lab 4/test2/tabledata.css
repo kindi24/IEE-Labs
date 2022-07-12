@@ -1,0 +1,13 @@
+﻿#datatable th{
+	background-color: #669900;
+	text-align: left;
+	color: white;
+	width: 30%;
+	padding-right:150px;
+}
+
+
+#datatable tr:nth-child(even){background-color: #ddd;}
+
+#datatable tr:hover{background-color: #f2f2f2;} 
+

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>HTML Div Layout</title>
+    <style>
+        /* style for the "body" tag */
+        body {
+            font: 12px Arial,sans-serif;
+            margin: 0px;
+        }
+       
+        /* style for the CSS class "container" */
+        .container {
+            background: white;
+            width: 100%;
+        }
+       
+        /* style for the CSS class "header" */
+        .header {
+            background: #667BB4;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+       
+        /* style for the "h1" tag used inside an element of the CSS class "header" */
+        .header h1 {
+            color: yellow;
+            font-size: 24px;
+        }
+       
+        /* style for the CSS class "nav" */
+        .nav {           
+            background: #DA251C;
+            width: 20%;            
+        }
+       
+        /* style for the CSS class "section" */
+        .section {
+            background: #BAB3D5;
+            width: 80%;
+        }
+
+        /* style that applies to both CSS classes "nav" and "section" */
+        .nav, .section {
+            float: left;
+            padding: 20px;
+            min-height: 170px;
+            box-sizing: border-box;
+        }
+       
+        /* style for the "h2" tag used inside an element of the CSS class "section" */
+        .section h2 {
+            color: white;
+            font-size: 20px;
+        }
+       
+     </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>1. Header Frame (header)</h1>
+        </div>
+        <div>
+            <div class="nav">
+                <a href="choice1.html">1. Άλλαξε το περιεχόμενο του frame 3</a> <br>
+                <a href="choice2.html">2. Άλλαξε το περιεχόμενο όλης της σελίδας</a> <br>
+				 <a href="test1.html" target="_blank">3. Εμφάνισέ το σε νέο παράθυρο</a>
+
+            </div>
+            <div class="section">
+                <h2>3. Center Frame</h2>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

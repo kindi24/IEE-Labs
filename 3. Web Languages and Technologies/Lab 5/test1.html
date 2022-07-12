@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    
+        <script>
+            function addNumbers()
+            {
+                var textBox1 = document.getElementById('text1');
+                var textBox2 = document.getElementById('text2');
+
+                var sumNumbers = parseInt(textBox1.value) + parseInt(textBox2.value); 
+                               
+                textBox2.value = sumNumbers;
+
+                if(sumNumbers > 1000){ 
+                	alert("Ξεπέρασες το 1000");
+                	document.getElementById("button").onclick = false;
+                }
+                
+            }
+            
+        </script>
+    </head>
+
+    <body>
+    
+    	<p>Δώσε έναν ακέραιο αριθμό:</p>
+        <input type="text" id="text1">
+        <input type="button" id="button" value="Add" onclick="addNumbers()">
+        
+        <hr />
+        
+        <p>Σε αυτό το κείμενο εμφανίζεται το συνολικό άθροισμα των αριθμών που γράφετε στο 1ο κείμενο</p>
+        <input type="text" id="text2" readonly="true" value="0">
+
+    </body>
+</html>

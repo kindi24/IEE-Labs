@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7">
+<title>Άσκηση 5</title>
+
+<script>
+
+		function getFocus(x){
+			x.style.backgroundColor ="yellow";
+		}
+
+		function looseFocus(x){
+		
+			var y = x.value.length;
+			
+			if (y == 0) x.style.backgroundColor = "red";
+			
+			else x.style.backgroundColor = "white";
+			
+		}
+
+</script>
+
+
+</head>
+
+<body>
+
+<p>
+  	<input type="text" id="tname" name="text1" onfocus="getFocus(this)" onblur="looseFocus(this)">
+</p>
+
+<p>
+  	<input type="text" id="tname" name="text2" onfocus="getFocus(this)" onblur="looseFocus(this)">
+</p>
+
+<p>
+  	<input type="text" id="tname" name="text3" onfocus="getFocus(this)" onblur="looseFocus(this)">
+</p>
+
+<p>
+  	<input type="text" id="tname" name="text4" onfocus="getFocus(this)" onblur="looseFocus(this)">
+</p> 
+
+</body>
+</html>

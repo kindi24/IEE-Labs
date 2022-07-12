@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Άσκηση 1</title>
+
+<script>
+
+			function ChangeColor(y){
+			
+				var x = document.getElementById("myText").value;
+				
+				if (isNaN(x)) y.style.backgroundColor = "green";
+				
+				else if (Number(x)) y.style.backgroundColor = "yellow";
+
+				else y.style.backgroundColor = "red";
+
+			}
+
+</script>
+
+</head>
+
+<body>
+		<input name="Text1" id="myText" type="text" onchange="ChangeColor(this)" />
+		
+</body>
+
+</html>
