@@ -4,10 +4,10 @@ main()
 {
     /*
     MATHIMA: DOMHMENOS PROGRAMMATISMOS
-    TMHMA: E4
+    TMHMA: 
     ERGASTHRIAKH ASKHSH:5
-    HMEROMHNIA: 08/11/2019
-    ONOMA: VASILEIOS KYNDELEROS
+    HMEROMHNIA: 
+    ONOMA: 
     */
     
     int num, i;
