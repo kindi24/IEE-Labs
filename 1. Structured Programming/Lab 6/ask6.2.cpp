@@ -6,9 +6,10 @@ main ()
 {
     /*
     MATHIMA: DOMHMENOS PROGRAMMATISMOS
-    TMHMA: E4
-    ONOMATEPONYMO: VASILEIOS KYNDELEROS
-    HMEROMHNIA: 25/10/2019
+    TMHMA: 
+    ERGASTHRIAKH ASKHSH: 6
+    HMEROMHNIA: 
+    ONOMA: 
     */
 	
 	for (int i = 1; i <= 10; i++){
