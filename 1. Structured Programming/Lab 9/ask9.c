@@ -5,10 +5,10 @@
 
 /*
     MATHIMA : DOMHMENOS PROGRAMMATISMOS
-    TMHMA : E4
+    TMHMA : 
     ERGASTHRIAKH ASKHSH : 9
-    HMEROMHNIA : 6/12/2019
-    ONOMA : VASILEIOS KYNDELEROS
+    HMEROMHNIA : 
+    ONOMA : 
 */
 void fill2DPin(int n, int p[][nmax])
 {
