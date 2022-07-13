@@ -5,9 +5,9 @@ main ()
 {
     /*
     MATHIMA: DOMHMENOS PROGRAMMATISMOS
-    TMHMA: E4
-    ONOMATEPONYMO: VASILEIOS KYNDELEROS
-    HMEROMHNIA: 25/10/2019
+    TMHMA:
+    ONOMATEPONYMO: 
+    HMEROMHNIA: 
     */
     
     int typos, age, cyb, cost;
