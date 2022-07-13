@@ -2,14 +2,6 @@
 #include <stdlib.h>
 main ()
 {
-        /*
-        MATHIMA: DOMHMENOS PROGRAMMATISMOS
-        TMHMA: E4
-        HMEROMHNIA: 25/10/2019
-        ONOMA: VASILEIOS KYNDELEROS
-        */
-        
-        //ask1
         
         int bar, age;
         double dms, yps;
